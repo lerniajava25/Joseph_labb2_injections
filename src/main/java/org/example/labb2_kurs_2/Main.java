@@ -1,12 +1,18 @@
 package org.example.labb2_kurs_2;
 
+import jakarta.enterprise.inject.se.SeContainer;
+import jakarta.enterprise.inject.se.SeContainerInitializer;
+
 public class Main {
-    public static void main(String[] args) {
-        SimpleContainer container = new SimpleContainer();
+    public static void main(String[] args){
+        SeContainerInitializer initializer =
+                SeContainerInitializer.newInstance();
 
-        WelcomeService welcomeService =
-                container.getInstance(WelcomeService.class);
+            try (SeContainer container = initializer.initialize()){
+                WelcomeService welcomeService =
+                        container.select(WelcomeService.class).get();
 
-        System.out.println(welcomeService.welcome("Joseph"));
+                System.out.println(welcomeService.welcome("Joseph"));
+            }
     }
 }

@@ -19,10 +19,14 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.jboss.weld.se</groupId>
+            <artifactId>weld-se-core</artifactId>
+            <version>5.1.7.Final</version>
+        </dependency>
+        <dependency>
             <groupId>jakarta.enterprise</groupId>
             <artifactId>jakarta.enterprise.cdi-api</artifactId>
-            <version>4.1.0</version>
-            <scope>provided</scope>
+            <version>4.0.1</version>
         </dependency>
         <dependency>
             <groupId>jakarta.ws.rs</groupId>
